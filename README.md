@@ -18,7 +18,7 @@ A lightweight, high-performance, and serverless microservice built with FastAPI 
 
 ## 📂 Project Structure
 - `main.py` - Main FastAPI application and routing
-- `client.py` - Sample Python script to consume the API
+- `test.py` - Sample Python script to consume the API
 - `Dockerfile` - Docker configuration for deployment
 - `requirements.txt` - Python dependencies
 - `.gitignore` - Ignored files
@@ -27,17 +27,7 @@ A lightweight, high-performance, and serverless microservice built with FastAPI 
 
 ## 🛠️ Getting Started (Local Development)
 
-### Option 1: Standard Python Environment
-1. Clone the repository and navigate to the project directory:
-   `git clone <your-repo-url>`
-   `cd qr-microservice`
-2. Install the required dependencies:
-   `pip install -r requirements.txt`
-3. Start the FastAPI server locally:
-   `uvicorn main:app --reload --host 0.0.0.0 --port 8080`
-4. Access the API locally at: `http://localhost:8080`
-
-### Option 2: Using Docker 🐳
+   Option : Using Docker 🐳
 1. Build the Docker image:
    `docker build -t qr-microservice .`
 2. Run the container:
@@ -59,30 +49,8 @@ The API is deployed and exposes a secure `/generate` endpoint. It returns a `ima
 
 ---
 
-## 🐍 Using the Client (`client.py`)
+## 🐍 Using the Client (`test.py`)
 
 You can easily consume this API from any backend service or automation script. Just run the included client script:
-`python client.py`
+`python test.py`
 
-**Full Client Script (`client.py`):**
-```python
-import requests
-
-# Ensure your endpoint ends with /generate
-BASE_URL = "[https://YOUR-APP-NAME.onrender.com/generate](https://YOUR-APP-NAME.onrender.com/generate)"
-
-params = {
-    "api_key": "magna_carta_libertatum",
-    "text": "Hello Cloud! This QR is from Render."
-}
-
-print("Sending request to the cloud API...")
-response = requests.get(BASE_URL, params=params)
-
-if response.status_code == 200:
-    with open("qr_code_output.png", "wb") as f:
-        f.write(response.content)
-    print("✅ Success! QR Code saved as 'qr_code_output.png'.")
-else:
-    print(f"❌ Error {response.status_code}: API refused the connection.")
-    print(response.text)
