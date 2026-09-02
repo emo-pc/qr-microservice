@@ -3,7 +3,6 @@ from fastapi.responses import Response
 import qrcode
 import io
 
-from streamlit import status
 
 app=FastAPI(
     title="QR Code Microservice",
