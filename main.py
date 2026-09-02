@@ -8,7 +8,7 @@ app=FastAPI(
     title="QR Code Microservice",
     description="Serverless API working on Google Cloud Run"
 )
-password="magna_carta_libertatum?"
+password="magna_carta_libertatum"
 
 def check_pass(api_key:str=Query(...,description="Enter the password")):
     if api_key!=password:
