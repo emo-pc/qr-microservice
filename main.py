@@ -6,8 +6,9 @@ import io
 
 app=FastAPI(
     title="QR Code Microservice",
-    description="Serverless API working on Google Cloud Run"
+    description="API working on Render CLoud "
 )
+#you can change the password
 password="magna_carta_libertatum"
 
 def check_pass(api_key:str=Query(...,description="Enter the password")):
