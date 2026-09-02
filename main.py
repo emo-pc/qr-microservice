@@ -1,6 +1,3 @@
-from http.client import HTTPException
-from idlelib.query import Query
-
 from fastapi import FastAPI,Depends,HTTPException,Query
 from fastapi.responses import Response
 import qrcode
